@@ -1,0 +1,15 @@
+{{- $replicaCount := int .Values.controller.replicaCount }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "kafka-pv-"{{ $replicaCount }}
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: "/var/log/kafka-data-"{{ $replicaCount }}
+{{- end }}

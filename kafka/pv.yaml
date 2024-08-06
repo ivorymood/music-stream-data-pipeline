@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kafka-pv-manual-1
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: /var/log/kafka-data-manual-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kafka-pv-manual-2
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: /var/log/kafka-data-manual-2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kafka-pv-manual-3
+  labels:
+    type: local  
+spec:
+  capacity:
+    storage: 8Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: /var/log/kafka-data-manual-3
